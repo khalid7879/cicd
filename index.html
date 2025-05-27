@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hind+Siliguri:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      test
+    </div>
+  </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm header" id="header">
+    <div class="container-fluid">
+      <div class="sidebar-header d-flex justify-content-end align-items-center">
+        <button id="toggleSidebar" class="btn">
+          <i class="bi bi-list" id="left" style="font-size: 1.2rem;"></i>
+        </button>
+        <a class="navbar-brand" href="#">Image</a>
+      </div>
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+        <a class="navbar-brand" href="#">MyCRM</a>
+        <!-- <div class="input-group" style="width: 500px;">
+        <select class="form-select custom-transparent" style="max-width: 120px;">
+          <option selected>All</option>
+          <option value="1">Action</option>
+          <option value="2">Another action</option>
+          <option value="3">Something else</option>
+          <option value="4">Separated link</option>
+        </select>
+        <div class="form-control position-relative custom-transparent" style="max-width: 410px;">
+          <input type="text" class="form-control border-0 bg-transparent ps-4" placeholder="Search..." style="background: transparent;" />
+          <i class="bi bi-search position-absolute top-50 start-1 translate-middle-y me-4 text-secondary"></i>
+        </div>
+      </div> -->
+        <div class="row">
+          <div class="input-group ">
+            <select class="custom-transparent my-select" onchange="resizeSelect(this)">
+              <option selected>All</option>
+              <option value="1">Action</option>
+              <option value="2">Another action</option>
+              <option value="3">Something else</option>
+              <option value="4">A very long text</option>
+            </select>
+            <span class="input-group-text custom-transparent-icon">
+              <i class="bi bi-search"></i>
+            </span>
+            <input type="text" class="custom-transparent my-input" placeholder="Comments"
+              aria-label="Text input with dropdown button">
+          </div>
+        </div>
+
+
+        <ul class="navbar-nav header-right mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-plus-square-fill"></i></a></li>
+          <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-bell-fill"></i></a></li>
+          <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-person-circle"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="d-flex">
+
+    <!-- Sidebar starts -->
+    <nav id="sidebar" class="sidebar bg-light px-1">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">
+            <i class="bi bi-house-door-fill me-2" title="Dashboard"></i><span class="link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-stickies-fill me-2" title="Task"></i> <span class="link-text">Task</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-person-lines-fill me-2" title="Contact"></i> <span class="link-text">Contact</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-people-fill me-2" title="Leads"></i> <span class="link-text">Leads</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-building-fill me-2" title="Organizations"></i> <span class="link-text">Organizations</span>
+          </a>
+        </li>
+
+        <!-- Dropdown Item  start-->
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-menu-button-wide me-2"></i> <span class="link-text">More</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width: 100%; text-align: center;">
+            <li><a class="dropdown-item" href="#">Sub item 1</a></li>
+            <li><a class="dropdown-item" href="#">Sub item 2</a></li>
+            <li><a class="dropdown-item" href="#">Sub item 3</a></li>
+          </ul>
+        </li> -->
+      </ul>
+    </nav>
+
+    <!-- Main Content start -->
+    <main id="main" class="flex-grow-1 p-2">
+      <a class="settings" onclick="switcher()"><i class="bi bi-gear-wide-connected"></i></a>
+      <div class="color-switcher" id="mode_switcher" style="display: none;">
+        <p style="text-align: center; color: #1e1e1e;">Select header Color</p>
+        <div class="theme-buttons-container">
+          <div class="theme-buttons" data-color="linear-gradient(to left, #EC1E25, #D76F72, #635cb1, #5c32a5)"
+            style="background: linear-gradient(to left, #EC1E25, #D76F72, #635cb1, #5c32a5);"></div>
+          <div class="theme-buttons" data-color="#f85f0a" style="background: #f85f0a;"></div>
+          <div class="theme-buttons" data-color="linear-gradient(135deg, skyblue, cadetblue)"
+            style="background: linear-gradient(135deg, skyblue, cadetblue);"></div>
+        </div>
+      </div>
+
+      <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight">Toggle right offcanvas</button>
+
+      <!-- Dashboard Container -->
+      <div class="dash-grid">
+        <div class="dash-card">
+          <h4>Top Sales Reps</h4>
+          <div class="dash-value">$354.57K</div>
+          <div class="dash-sub">Average Sales Size</div>
+          <div class="gauge-wrap justify-content-center">
+            <div id="bar"></div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <h4>Sales Pipeline Funnel</h4>
+          <div class="dash-value">$2.35M</div>
+          <div class="dash-sub">Sum of Opportunity Value</div>
+          <div class="gauge-wrap justify-content-center">
+            <div id="funnel"></div>
+          </div>
+        </div>
+
+        <div class="dash-card dash-card-large">
+          <h4>Total Sales</h4>
+          <div class="dash-value">$2.48M</div>
+          <div class="dash-sub">Sum of Total Sales Value</div>
+          <div class="gauge-wrap justify-content-center">
+            <div id="chart"></div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <h4>Number of Opps by State</h4>
+          <div class="dash-value">20</div>
+          <div class="dash-sub">Count of Opportunities</div>
+          <div class="gauge-wrap justify-content-center" >
+            <div id="donut"></div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <h4>Sales Pipeline Weighted</h4>
+          <div class="dash-value">$367.20K</div>
+          <div class="dash-sub">Expected Revenue</div>
+        </div>
+
+        <div class="dash-card">
+          <h4>Lost Opps by Reason</h4>
+          <div class="dash-value">3</div>
+          <div class="dash-sub">Lost Opportunities</div>
+        </div>
+
+        <div class="dash-card dash-card-large">
+          <h4>Win Rate</h4>
+          <div class="dash-value">58.33%</div>
+          <div class="dash-sub">Sum of Win Rate</div>
+          <div class="gauge-wrap d-flex justify-content-center" >
+            <div id="radial"></div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <h4>Total Sales by Rep</h4>
+          <div class="dash-value">$2.48M</div>
+          <div class="dash-sub">Sum of Opportunity Value</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+   <script src="chart.js"></script>
+  <script>
+    const toggleButton = document.getElementById('toggleSidebar');
+    const sidebarIcon = toggleButton.querySelector('i');
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main');
+
+    toggleButton.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      main.classList.toggle('expanded');
+      sidebarIcon.classList.toggle('rotated');
+    });
+
+    let savedColor = localStorage.getItem("headerColor");
+    if (savedColor) {
+      $('#header').css('background', savedColor);
+    }
+
+    $('.theme-buttons').on('click', function () {
+      let color = $(this).data('color');
+      $('#header').css('background', color);
+      localStorage.setItem("headerColor", color);
+    });
+
+    window.switcher = function () {
+      $('#mode_switcher').toggle();
+    };
+
+    function resizeSelect(sel) {
+      const tmp = document.createElement("span");
+      tmp.style.visibility = "hidden";
+      tmp.style.position = "absolute";
+      tmp.style.whiteSpace = "nowrap";
+      tmp.innerText = sel.options[sel.selectedIndex].text;
+      document.body.appendChild(tmp);
+      sel.style.width = tmp.offsetWidth + 35 + "px"; // +35 for dropdown arrow
+      tmp.remove();
+    }
+    window.addEventListener("DOMContentLoaded", function () {
+      const sel = document.querySelector("select");
+      if (sel) resizeSelect(sel);
+    });
+  document.addEventListener('DOMContentLoaded', function () {
+    Sortable.create(document.querySelector('.dash-grid'), {
+      animation: 150,
+      ghostClass: 'sortable-ghost',
+      handle: '.dash-card',
+    });
+  });
+
+
+  
+    
+
+  </script>
+
+
+
+</body>
+
+</html>
